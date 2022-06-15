@@ -1,0 +1,2 @@
+"\er": redraw-current-line
+"\C-x\C-f": " \C-b\C-k \C-u`_fzf_tmux_capture_pane`\e\C-e\er\C-a\C-y\C-h\C-e\e \C-y\ey\C-x\C-x\C-f"
