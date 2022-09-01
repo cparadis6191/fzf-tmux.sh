@@ -9,5 +9,5 @@ __fzf_tmux_cmd() {
 }
 
 _fzf_tmux_capture_pane() {
-	tmux capture-pane -e -p -J | sed --expression='/^$/d' | head --lines=-1 | uniq | sed --expression='s/^[[:space:]]*//' --expression='s/[[:space:]]*$//' | __fzf_tmux_cmd --ansi --multi
+	tmux capture-pane -e -p -J | sed --expression='/^$/d' | head --lines=-1 | uniq | sed --expression='s/^[[:space:]]*//' --expression='s/[[:space:]]*$//' | __fzf_tmux_cmd --ansi --layout=default --multi --tac
 }
