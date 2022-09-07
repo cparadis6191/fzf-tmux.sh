@@ -2,10 +2,10 @@
 # -------------
 
 __fzf_tmux_cmd() {
-  # Refer to
-  # https://github.com/junegunn/fzf/blob/master/shell/key-bindings.bash for
-  # more information about __fzfcmd.
-  $(__fzfcmd) --bind=ctrl-z:ignore "$@"
+	# Refer to
+	# https://github.com/junegunn/fzf/blob/master/shell/key-bindings.bash for
+	# more information about __fzfcmd.
+	$(__fzfcmd) --bind=ctrl-z:ignore "$@"
 }
 
 _fzf_tmux_capture_pane() {
