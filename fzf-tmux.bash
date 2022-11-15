@@ -8,7 +8,7 @@ __fzf_tmux_cmd() {
 	$(__fzfcmd) --bind=ctrl-z:ignore "$@"
 }
 
-_fzf_tmux_capture_pane() {
+_fzf_tmux_capture_pane_lines() {
 	tmux capture-pane -e -p -J |
 		sed --expression='/^$/d' |
 		head --lines=-1 |
