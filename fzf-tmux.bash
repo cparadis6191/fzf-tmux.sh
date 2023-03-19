@@ -1,6 +1,3 @@
-# tmux heart fzf
-# -------------
-
 __fzf_tmux_cmd() {
 	# Refer to
 	# https://github.com/junegunn/fzf/blob/master/shell/key-bindings.bash for
