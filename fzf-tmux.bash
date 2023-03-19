@@ -1,8 +1,8 @@
-__fzf_tmux_cmd() {
+__fzf_tmux_fzf() {
 	# Refer to
-	# https://github.com/junegunn/fzf/blob/master/shell/key-bindings.bash for
-	# more information about __fzfcmd.
-	$(__fzfcmd) --bind=ctrl-z:ignore "$@"
+	# https://github.com/junegunn/fzf-git.sh/blob/main/README.md#customization
+	# for more information about _fzf_git_fzf.
+	_fzf_git_fzf --bind=ctrl-z:ignore "$@"
 }
 
 _fzf_tmux_capture_pane_lines() {
@@ -10,7 +10,7 @@ _fzf_tmux_capture_pane_lines() {
 		sed --expression='/^$/d' |
 		head --lines=-1 |
 		uniq |
-		__fzf_tmux_cmd --ansi --multi --tac |
+		__fzf_tmux_fzf --ansi --multi --tac |
 		sed --expression='s/^[[:space:]]*//' --expression='s/[[:space:]]*$//'
 }
 
@@ -22,5 +22,5 @@ _fzf_tmux_capture_pane_words() {
 		uniq |
 		grep --only-matching --perl-regexp '\s*[^\s]+\s*' |
 		awk '{ if (seen_words[$0]++ == 0) { print $0; } }' |
-		__fzf_tmux_cmd --ansi --multi --tac
+		__fzf_tmux_fzf --ansi --multi --tac
 }
