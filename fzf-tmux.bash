@@ -20,7 +20,8 @@ _fzf_tmux_capture_pane_words() {
 		sed --expression='/^$/d' |
 		head --lines=-1 |
 		uniq |
-		grep --only-matching --perl-regexp '\s*[^\s]+\s*' |
+		grep --only-matching \
+		--perl-regexp '\s*[^\s]+\s*' |
 		awk '{ if (seen_words[$0]++ == 0) { print $0; } }' |
 		__fzf_tmux_fzf --ansi --multi --tac
 }
