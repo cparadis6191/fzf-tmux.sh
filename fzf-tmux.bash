@@ -6,7 +6,7 @@ __fzf_tmux_fzf() {
 }
 
 _fzf_tmux_capture_pane_lines() {
-	tmux capture-pane -e -p -J |
+	tmux capture-pane -J -e -p |
 		sed --expression='/^$/d' |
 		head --lines=-1 |
 		uniq |
@@ -18,7 +18,7 @@ _fzf_tmux_capture_pane_lines() {
 
 # Inspired by https://unix.stackexchange.com/a/533667.
 _fzf_tmux_capture_pane_words() {
-	tmux capture-pane -e -p -J |
+	tmux capture-pane -J -e -p |
 		sed --expression='/^$/d' |
 		head --lines=-1 |
 		uniq |
