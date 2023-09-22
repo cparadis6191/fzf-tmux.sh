@@ -34,5 +34,5 @@ _fzf_tmux_capture_pane_words() {
 		--multi \
 		--tac \
 		--header=$'\nALT-E (open in editor)' \
-		--bind="alt-e:execute:${EDITOR:-vim} {-1} > /dev/tty"
+		--bind="alt-e:execute:${EDITOR:-vim} {+} > /dev/tty"
 }
