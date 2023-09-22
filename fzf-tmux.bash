@@ -10,7 +10,10 @@ _fzf_tmux_capture_pane_lines() {
 		sed --expression='/^$/d' |
 		head --lines=-1 |
 		uniq |
-		__fzf_tmux_fzf --ansi --layout=default --multi --tac \
+		__fzf_tmux_fzf --ansi \
+		--layout=default \
+		--multi \
+		--tac \
 		--header=$'\nALT-E (open in editor)' \
 		--bind="alt-e:execute:${EDITOR:-vim} {-1} > /dev/tty" |
 		sed --expression='s/^[[:space:]]*//' --expression='s/[[:space:]]*$//'
@@ -25,7 +28,10 @@ _fzf_tmux_capture_pane_words() {
 		grep --only-matching \
 		--perl-regexp '\s*[^\s]+\s*' |
 		awk '{ if (seen_words[$0]++ == 0) { print $0; } }' |
-		__fzf_tmux_fzf --ansi --layout=default --multi --tac \
+		__fzf_tmux_fzf --ansi \
+		--layout=default \
+		--multi \
+		--tac \
 		--header=$'\nALT-E (open in editor)' \
 		--bind="alt-e:execute:${EDITOR:-vim} {-1} > /dev/tty"
 }
