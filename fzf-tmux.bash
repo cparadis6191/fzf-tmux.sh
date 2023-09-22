@@ -28,6 +28,7 @@ _fzf_tmux_capture_pane_words() {
 		grep --only-matching \
 		--perl-regexp '\s*[^\s]+\s*' |
 		awk '{ if (seen_words[$0]++ == 0) { print $0; } }' |
+		sed --expression='s/^\s\+//' --expression='s/\s\+$//' |
 		__fzf_tmux_fzf --ansi \
 		--layout=default \
 		--multi \
