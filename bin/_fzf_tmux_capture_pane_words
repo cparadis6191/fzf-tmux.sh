@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+# Inspired by https://unix.stackexchange.com/a/533667.
+_fzf_tmux_capture_pane_words() {
+	tmux capture-pane -J -e -p |
+		sed --expression='/^$/d' |
+		head --lines=-1 |
+		uniq |
+		grep --only-matching \
+		--perl-regexp '\s*[^\s]+\s*' |
+		awk '{ if (seen_words[$0]++ == 0) { print $0; } }' |
+		sed --expression='s/^\s\+//' --expression='s/\s\+$//' |
+		__fzf_tmux_fzf --ansi \
+		--layout=default \
+		--multi \
+		--tac \
+		--header=$'\nALT-E (open in editor)' \
+		--bind="alt-e:execute:${EDITOR:-vim} {+} > /dev/tty"
+}
+
+_fzf_tmux_capture_pane_words "$@"
