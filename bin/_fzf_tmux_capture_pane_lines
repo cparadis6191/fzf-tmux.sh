@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 _fzf_tmux_capture_pane_lines() {
 	tmux capture-pane -J -e -p |
