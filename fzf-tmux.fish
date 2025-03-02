@@ -1,2 +1,6 @@
-bind \cx\cl 'commandline --insert (_fzf_tmux_capture_pane_lines | string join " ")'
-bind \cx\cf 'commandline --insert (_fzf_tmux_capture_pane_words | string join " ")'
+function __fzf_tmux_fish
+    commandline --insert (eval $argv[1] | string join ' ')
+end
+
+bind \cx\cl '__fzf_tmux_fish _fzf_tmux_capture_pane_lines'
+bind \cx\cf '__fzf_tmux_fish _fzf_tmux_capture_pane_words'
