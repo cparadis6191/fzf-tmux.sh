@@ -1,7 +1,7 @@
 { fzf, stdenv, tmux, ... }:
 
 stdenv.mkDerivation {
-  pname = "fzf-tmux";
+  pname = "fzf tmux";
   version = "0.0.1";
 
   src = ./.;
