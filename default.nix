@@ -6,6 +6,8 @@ stdenv.mkDerivation {
 
   src = ./.;
 
+  buildInputs = [ fzf tmux ];
+
   dontBuild = true;
 
   installPhase = ''
