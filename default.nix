@@ -15,9 +15,8 @@ stdenv.mkDerivation {
 
     mkdir --parents $out/share/fzf-tmux/
 
-    install -D ./fzf-tmux.fish    $out/share/fzf-tmux/
-    install -D ./fzf-tmux.inputrc $out/share/fzf-tmux/
-    install -D ./fzf-tmux.sh      $out/share/fzf-tmux/
+    install -D ./fzf-tmux.fish $out/share/fzf-tmux/
+    install -D ./fzf-tmux.sh   $out/share/fzf-tmux/
 
     runHook postInstall
   '';
