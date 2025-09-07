@@ -13,10 +13,10 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    mkdir --parents $out/share/fzf-tmux/
+    mkdir --parents $out/share/fzf-tmux.sh/
 
-    install -D ./fzf-tmux.fish $out/share/fzf-tmux/
-    install -D ./fzf-tmux.sh   $out/share/fzf-tmux/
+    install -D ./fzf-tmux.fish $out/share/fzf-tmux.sh/
+    install -D ./fzf-tmux.sh   $out/share/fzf-tmux.sh/
 
     runHook postInstall
   '';
