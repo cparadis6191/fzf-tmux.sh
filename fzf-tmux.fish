@@ -12,8 +12,8 @@ set --local commands fcapture_pane_words lcapture_pane_lines
 for command in $commands
     set --function key (string sub --length=1 $command)
 
-    eval "bind -M default \cx$key   '__fzf_tmux_sh $command'"
-    eval "bind -M insert  \cx$key   '__fzf_tmux_sh $command'"
-    eval "bind -M default \cx\c$key '__fzf_tmux_sh $command'"
-    eval "bind -M insert  \cx\c$key '__fzf_tmux_sh $command'"
+    eval "bind --mode default \cx$key   '__fzf_tmux_sh $command'"
+    eval "bind --mode insert  \cx$key   '__fzf_tmux_sh $command'"
+    eval "bind --mode default \cx\c$key '__fzf_tmux_sh $command'"
+    eval "bind --mode insert  \cx\c$key '__fzf_tmux_sh $command'"
 end
