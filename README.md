@@ -39,8 +39,6 @@ Usage
 Customization
 -------------
 
-Set the `$FZF_TMUX_DEFAULT_OPTS` environment variable to change the options.
-
 ```sh
 # Redefine this function to change the options
 _fzf_tmux_fzf() {
@@ -53,6 +51,9 @@ _fzf_tmux_fzf() {
     --bind 'ctrl-/:change-preview-window(down,50%|hidden|)' "$@"
 }
 ```
+
+Alternatively, set the `$FZF_TMUX_DEFAULT_OPTS` environment variable to change
+options. Note that this is the only way to change options in fish.
 
 Defining shortcut commands
 --------------------------
