@@ -68,6 +68,19 @@ tw() {
 }
 ```
 
+In fish, each binding is backed by `__fzf_git_sh *` so you can do something
+like this this in your shell configuration file.
+
+```fish
+function tw
+  _fzf_tmux_sh fcapture_pane_words
+end
+
+function tsl
+  cd (_fzf_tmux_sh lcapture_pane_lines)
+end
+```
+
 Environment Variables
 ---------------------
 
