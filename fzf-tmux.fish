@@ -7,7 +7,7 @@ function _fzf_tmux_sh
     SHELL=bash bash $fzf_tmux_sh_path/fzf-tmux.sh --run $argv
 end
 
-set --local commands fcapture_pane_words lcapture_pane_lines
+set --local commands fpane_words lpane_lines
 
 for command in $commands
     set --function key (string sub --length=1 $command)

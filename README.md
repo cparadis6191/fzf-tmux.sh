@@ -60,11 +60,11 @@ this in your shell configuration file.
 
 ```sh
 tl() {
-  _fzf_tmux_fcapture_pane_words
+  _fzf_tmux_fpane_words
 }
 
 tw() {
-  cd "$(_fzf_tmux_lcapture_pane_lines)"
+  cd "$(_fzf_tmux_lpane_lines)"
 }
 ```
 
@@ -73,11 +73,11 @@ like this this in your shell configuration file.
 
 ```fish
 function tw
-  _fzf_tmux_fcapture_pane_words
+  _fzf_tmux_fpane_words
 end
 
 function tsl
-  cd (_fzf_tmux_lcapture_pane_lines)
+  cd (_fzf_tmux_lpane_lines)
 end
 ```
 

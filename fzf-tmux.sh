@@ -43,7 +43,7 @@ fi
 __fzf_tmux=${BASH_SOURCE[0]:-${(%):-%x}}
 __fzf_tmux=$(readlink -f "$__fzf_tmux" 2> /dev/null || /usr/bin/ruby --disable-gems -e 'puts File.expand_path(ARGV.first)' "$__fzf_tmux" 2> /dev/null)
 
-_fzf_tmux_lcapture_pane_lines() {
+_fzf_tmux_lpane_lines() {
 	tmux capture-pane -J -e -p |
 		sed --expression='/^$/d' |
 		head --lines=-1 |
@@ -57,7 +57,7 @@ _fzf_tmux_lcapture_pane_lines() {
 }
 
 # Inspired by https://unix.stackexchange.com/a/533667.
-_fzf_tmux_fcapture_pane_words() {
+_fzf_tmux_fpane_words() {
 	tmux capture-pane -J -e -p |
 		sed --expression='/^$/d' |
 		head --lines=-1 |
@@ -138,6 +138,6 @@ elif [[ -n "${ZSH_VERSION:-}" ]]; then
     done
   }
 fi
-__fzf_tmux_init fcapture_pane_words lcapture_pane_lines '?list_bindings'
+__fzf_tmux_init fpane_words lpane_lines '?list_bindings'
 
 fi # --------------------------------------------------------------------------
