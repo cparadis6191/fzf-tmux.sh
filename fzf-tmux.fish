@@ -4,7 +4,7 @@ function __fzf_tmux_sh
     # having to modify `$PATH`.
     set --function fzf_tmux_sh_path (realpath (status dirname))
 
-    commandline --insert (SHELL=bash bash "$fzf_tmux_sh_path/fzf-tmux.sh" --run $argv | string join ' ')
+    SHELL=bash bash $fzf_tmux_sh_path/fzf-tmux.sh --run $argv
 end
 
 set --local commands fcapture_pane_words lcapture_pane_lines
@@ -12,8 +12,8 @@ set --local commands fcapture_pane_words lcapture_pane_lines
 for command in $commands
     set --function key (string sub --length=1 $command)
 
-    eval "bind --mode default \cx$key   '__fzf_tmux_sh $command'"
-    eval "bind --mode insert  \cx$key   '__fzf_tmux_sh $command'"
-    eval "bind --mode default \cx\c$key '__fzf_tmux_sh $command'"
-    eval "bind --mode insert  \cx\c$key '__fzf_tmux_sh $command'"
+    eval "bind --mode default \cx$key   'commandline --insert (__fzf_tmux_sh $command | string join \" \")'"
+    eval "bind --mode insert  \cx$key   'commandline --insert (__fzf_tmux_sh $command | string join \" \")'"
+    eval "bind --mode default \cx\c$key 'commandline --insert (__fzf_tmux_sh $command | string join \" \")'"
+    eval "bind --mode insert  \cx\c$key 'commandline --insert (__fzf_tmux_sh $command | string join \" \")'"
 end
