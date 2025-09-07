@@ -30,13 +30,14 @@ if [[ $_fzf_tmux_fzf ]]; then
 else
   # Redefine this function to change the options
   _fzf_tmux_fzf() {
-    fzf --height 50% --tmux 90%,70% \
+    opts=${FZF_TMUX_DEFAULT_OPTS:---height 50% --tmux 90%,70% \
       --layout reverse --multi --min-height 20+ --border \
       --no-separator --header-border horizontal \
       --border-label-pos 2 \
       --color 'label:blue' \
       --preview-window 'right,50%' --preview-border line \
-      --bind 'ctrl-/:change-preview-window(down,50%|hidden|)' "$@"
+      --bind 'ctrl-/:change-preview-window(down,50%|hidden|)'}
+    fzf $opts "$@"
   }
 fi
 

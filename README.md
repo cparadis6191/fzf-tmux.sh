@@ -39,6 +39,8 @@ Usage
 Customization
 -------------
 
+Set the `$FZF_TMUX_DEFAULT_OPTS` environment variable to change the options.
+
 ```sh
 # Redefine this function to change the options
 _fzf_tmux_fzf() {
@@ -87,3 +89,4 @@ Environment Variables
 | Variable                | Description                                              | Default                                         |
 | ----------------------- | -------------------------------------------------------- | ----------------------------------------------- |
 | `BAT_STYLE`             | Specifies the style for displaying files using `bat`     | `full`                                          |
+| `FZF_TMUX_DEFAULT_OPTS` | Specifies the default options for _fzf_tmux_fzf          |                                                 |
