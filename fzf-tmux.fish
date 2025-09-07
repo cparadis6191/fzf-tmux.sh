@@ -12,8 +12,10 @@ set --local commands fcapture_pane_words lcapture_pane_lines
 for command in $commands
     set --function key (string sub --length=1 $command)
 
-    eval "bind --mode default \cx$key   'commandline --insert (_fzf_tmux_sh $command | string join \" \")'"
-    eval "bind --mode insert  \cx$key   'commandline --insert (_fzf_tmux_sh $command | string join \" \")'"
-    eval "bind --mode default \cx\c$key 'commandline --insert (_fzf_tmux_sh $command | string join \" \")'"
-    eval "bind --mode insert  \cx\c$key 'commandline --insert (_fzf_tmux_sh $command | string join \" \")'"
+    eval "function _fzf_tmux_$command; _fzf_tmux_sh $command; end"
+
+    eval "bind --mode default \cx$key   'commandline --insert (_fzf_tmux_$command | string join \" \")'"
+    eval "bind --mode insert  \cx$key   'commandline --insert (_fzf_tmux_$command | string join \" \")'"
+    eval "bind --mode default \cx\c$key 'commandline --insert (_fzf_tmux_$command | string join \" \")'"
+    eval "bind --mode insert  \cx\c$key 'commandline --insert (_fzf_tmux_$command | string join \" \")'"
 end

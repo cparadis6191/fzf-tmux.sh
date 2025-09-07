@@ -73,11 +73,11 @@ like this this in your shell configuration file.
 
 ```fish
 function tw
-  _fzf_tmux_sh fcapture_pane_words
+  _fzf_tmux_fcapture_pane_words
 end
 
 function tsl
-  cd (_fzf_tmux_sh lcapture_pane_lines)
+  cd (_fzf_tmux_lcapture_pane_lines)
 end
 ```
 
