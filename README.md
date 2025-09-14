@@ -71,7 +71,7 @@ tw() {
 }
 ```
 
-In fish, each binding is backed by `__fzf_git_sh *` so you can do something
+In fish, each binding is backed by `_fzf_tmux_*` so you can do something
 like this this in your shell configuration file.
 
 ```fish
